@@ -1,12 +1,15 @@
 import os
 import xml.etree.ElementTree as ET
 
+# Temps à rajouter au début et à la fin de chaque clip
+rajout = 5
+
 # Définir le dossier d'entrée et de sortie
 dossier_entree = './xml-import'
 dossier_sortie = './xml-export'
 
 # Fonction pour ajuster les plages de temps
-def ajuster_temps(instances, ajustement=1):
+def ajuster_temps(instances, ajustement=rajout):
     for instance in instances:
         start_time = float(instance.find('start').text)
         end_time = float(instance.find('end').text)
